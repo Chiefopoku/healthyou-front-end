@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthYou</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="./index.html">HealthYou</a></div>
+        <nav class="nav">
+            <div class="nav-toggle">
+                <div class="nav-toggle-bar"></div>
+                <div class="nav-toggle-bar"></div>
+                <div class="nav-toggle-bar"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./features.html">Features</a></li>
+                <li><a href="./login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="health-tips-section">
+            <h2>Health Tips</h2>
+            <div id="health-tip">
+                <!-- Health tips will be dynamically populated here -->
+            </div>
+        </section>
+        <section class="reminder-setup-section">
+            <h2>Set Your Reminders</h2>
+            <form id="reminder-form">
+                <div class="form-group">
+                    <label for="reminder-type">Type of Reminder:</label>
+                    <select id="reminder-type" name="reminder-type" required>
+                        <option value="hydration">Hydration Reminders</option>
+                        <option value="medication">Medication Alerts</option>
+                        <option value="meal">Meal Reminders</option>
+                        <option value="physical-activity">Physical Activity Alerts</option>
+                        <option value="stretching">Stretching Prompts</option>
+                        <option value="mindfulness">Mindfulness and Meditation</option>
+                        <option value="sleep">Sleep Schedule</option>
+                        <option value="doctor-appointment">Doctor’s Appointments</option>
+                        <option value="blood-pressure">Blood Pressure Monitoring</option>
+                        <option value="blood-sugar">Blood Sugar Monitoring</option>
+                        <option value="cholesterol">Cholesterol Monitoring</option>
+                        <option value="vision">Vision Exercises</option>
+                        <option value="vitamin">Vitamin Intake</option>
+                        <option value="health-checkup">Health Check-Ups</option>
+                        <option value="mental-health">Mental Health Check-Ins</option>
+                        <option value="posture">Posture Corrections</option>
+                        <option value="skin-care">Skin Care Routine</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="interval">Interval:</label>
+                    <select id="interval" name="interval" required>
+                        <option value="2hourly">Every 2 Hours</option>
+                        <option value="4hourly">Every 4 Hours</option>
+                        <option value="6hourly">Every 6 Hours</option>
+                        <option value="8hourly">Every 8 Hours</option>
+                        <option value="10hourly">Every 10 Hours</option>
+                        <option value="custom">Custom Duration/Interval</option>
+                    </select>
+                </div>
+                <button type="submit">Set Reminder</button>
+            </form>
+        </section>
+        <section class="current-reminders-section">
+            <h2>Your Current Reminders</h2>
+            <div class="reminder-list">
+                <!-- Example of a dynamically added reminder item -->
+                <!-- Dynamically added reminder items will appear here -->
+            </div>
+        </section>
+        <section class="bmi-calculator">
+            <h2>Calculate Your BMI</h2>
+            <form id="bmiForm">
+                <div class="form-group">
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" id="weight" name="weight" required>
+                </div>
+                <div class="form-group">
+                    <label for="height">Height (m):</label>
+                    <input type="number" id="height" name="height" step="0.01" required>
+                </div>
+                <button type="submit" class="btn">Calculate BMI</button>
+            </form>
+            <div id="bmiResult" class="bmi-result"></div>
+        </section>
+    </main>
+
+    <footer>
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./features.html">Features</a></li>
+            <li><a href="./login.html">Login</a></li>
+        </ul>
+        <div>
+            <a href="https://chiefopoku.github.io/social_links-profile/"><img src="Assets/icons/facebook.png" height="30" alt="Facebook Icon"></a>
+            <a href="https://chiefopoku.github.io/social_links-profile/"><img src="Assets/icons/twitter.png" height="30" alt="Twitter Icon"></a>
+            <a href="https://chiefopoku.github.io/social_links-profile/"><img src="Assets/icons/instagram.png" height="30" alt="Instagram Icon"></a>
+        </div>
+        <p>Contact us: healthyou@gmail.com | (+233) 2454-86439</p>
+    </footer>
+    <script>
+        document.getElementById('bmiForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+
+            if (weight > 0 && height > 0) {
+                const bmi = weight / (height * height);
+                let resultText = `Your BMI is ${bmi.toFixed(2)}.`;
+
+                if (bmi < 18.5) {
+                    resultText += " You are underweight.";
+                } else if (bmi >= 18.5 && bmi < 24.9) {
+                    resultText += " You have a normal weight.";
+                } else if (bmi >= 25 && bmi < 29.9) {
+                    resultText += " You are overweight.";
+                } else {
+                    resultText += " You are obese.";
+                }
+
+                document.getElementById('bmiResult').innerText = resultText;
+            } else {
+                document.getElementById('bmiResult').innerText = "Please enter valid weight and height.";
+            }
+        });
+    </script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>

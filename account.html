@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthYou</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="./index.html">HealthYou</a></div>
+        <nav class="nav">
+            <div class="nav-toggle">
+                <div class="nav-toggle-bar"></div>
+                <div class="nav-toggle-bar"></div>
+                <div class="nav-toggle-bar"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./features.html">Features</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="settings-sections">
+            <section class="profile-settings card">
+                <h2>Profile Settings</h2>
+                <form action="/save_settings" method="post">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-picture">Profile Picture:</label>
+                        <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
+                    </div>
+                    <button type="submit" class="btn">Save Changes</button>
+                </form>
+            </section>
+            <section class="notification-preferences card">
+                <h2>Notification Preferences</h2>
+                <form action="/update_notifications" method="post">
+                    <div class="form-group">
+                        <label>
+                            Enable Push Notifications <input type="checkbox" name="push-notifications"> 
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            Enable SMS Notifications <input type="checkbox" name="sms-notifications"> 
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="notification-sound">Notification Sound Preferences:</label>
+                        <select id="notification-sound" name="notification-sound">
+                            <option value="default">Default Sound</option>
+                            <option value="custom">Custom Sound</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Save Changes</button>
+                </form>
+            </section>
+            <section class="data-management card">
+                <h2>Data Management</h2>
+                <div class="data-actions">
+                    <button class="btn export-data" onclick="exportData();">Export Data</button>
+                    <button class="btn delete-account" id="clearDataButton">Clear All Data</button>
+                </div>
+            </section>
+            <section class="logout-section card">
+                <h2>Logout</h2>
+                <form id="logoutForm">
+                    <button type="submit" class="btn">Logout</button>
+                </form>
+            </section>
+        </div>
+
+    </main>
+    <footer>
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./features.html">Features</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./account.html">Account</a></li>
+        </ul>
+        <div>
+            <a href="https://chiefopoku.github.io/social_links-profile/"><img src="Assets/icons/facebook.png" height="30" alt="Facebook Icon"></a>
+            <a href="https://chiefopoku.github.io/social_links-profile/"><img src="Assets/icons/twitter.png" height="30" alt="Twitter Icon"></a>
+            <a href="https://chiefopoku.github.io/social_links-profile/"><img src="Assets/icons/instagram.png" height="30" alt="Instagram Icon"></a>
+        </div>
+        <p>Contact us: healthyou@gmail.com | (+233) 2454-86439</p>
+    </footer>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
