@@ -3,118 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealthYou</title>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
-    <header>
-        <div class="logo"><a href="./index.html">HealthYou</a></div>
-        <nav class="nav">
-            <div class="nav-toggle">
-                <div class="nav-toggle-bar"></div>
-                <div class="nav-toggle-bar"></div>
-                <div class="nav-toggle-bar"></div>
-            </div>
+    <title>HealthYou | Your daily health companion</title>
+    <meta name="description" content="HealthYou: a front-end demo web app for daily health reminders, health tips and a BMI calculator, built by Emmanuel Opoku-Adjei.">
+    <meta name="theme-color" content="#10b981">
+    <meta property="og:title" content="HealthYou | Your daily health companion">
+    <meta property="og:description" content="HealthYou: a front-end demo web app for daily health reminders, health tips and a BMI calculator, built by Emmanuel Opoku-Adjei.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%2310b981'/%3E%3Cpath d='M18 8.6a3.4 3.4 0 0 0-4.8 0l-.6.7-.6-.7a3.4 3.4 0 0 0-4.8 4.8l5.4 5.2 5.4-5.2a3.4 3.4 0 0 0 0-4.8z' fill='white'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css?v=2">
+</head><body data-page="index">
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+        <div class="container nav-bar">
+            <a class="brand" href="./index.html"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>HealthYou</a>
+            <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
             <ul class="nav-list">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./features.html">Features</a></li>
+                <li><a href="./index.html" aria-current="page">Home</a></li>
+                <li><a href="./features.html">Dashboard</a></li>
                 <li><a href="./about.html">About</a></li>
                 <li><a href="./account.html">Account</a></li>
+                <li><a href="./signup.html" class="btn" data-guest>Get started</a></li>
+                <li><a href="./index.html" id="logout" data-member hidden>Log out</a></li>
             </ul>
-        </nav>
+        </div>
     </header>
-    <section class="hero">
-        <h1>Your Health Companion</h1>
-        <p>Simplify your daily health routines with personalized reminders.</p>
-        <a href="./signup.html" class="btn">Get Started</a>
-    </section>
+    <main id="main">
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <span class="eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2z"/></svg> Your daily health companion</span>
+                    <h1>Healthy habits, <span class="grad-text">gently reminded.</span></h1>
+                    <p class="lead">Set reminders for water, medication, movement and rest, get a fresh health tip through the day, and check your BMI in seconds.</p>
+                    <div class="hero-ctas">
+                        <a href="./signup.html" class="btn">Get started, it&rsquo;s free</a>
+                        <a href="./features.html" class="btn btn-ghost">Try the dashboard</a>
+                    </div>
+                    <ul class="hero-points">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> No download</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Data stays on your device</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Set up in a minute</li>
+                    </ul>
+                </div>
+                <div class="mockup" aria-hidden="true">
+                    <div class="mockup-head">
+                        <div><small class="muted">Today</small><br><strong>Good morning</strong></div>
+                        <div class="mockup-ring" style="--p:67"><span>2/3</span></div>
+                    </div>
+                    <div class="mock-item done"><span class="tile sm blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7l5.7 5.7a8 8 0 1 1-11.3 0z"/></svg></span><div><strong>Drink water</strong><small>Every 2 hours</small></div><span class="tick"></span></div>
+                    <div class="mock-item done"><span class="tile sm indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></span><div><strong>Vitamin intake</strong><small>Every 8 hours</small></div><span class="tick"></span></div>
+                    <div class="mock-item"><span class="tile sm green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="4" r="2"/><path d="M4 22l4-7 3 2 3-5 4 3"/><path d="M8 11l2-4 4 1 2 4"/></svg></span><div><strong>Stretch break</strong><small>Every 4 hours</small></div><span class="tick"></span></div>
+                    <div class="floating-chip"><span class="tile sm amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span><div><strong>Time to drink water</strong><br><small class="muted">HealthYou &middot; now</small></div></div>
+                </div>
+            </div>
+        </section>
 
-    <section id="features">
-        <h2>Features</h2>
-        <div class="features">
-            <div class="feature">
-                <img src="/Assets/icons/bottle-of-water.png" height="50px" alt="bottle water">
-                <h3>Daily Hydration Reminders</h3>
-                <p>Never forget to drink water with our timely reminders.</p>
+        <section id="features">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Features</span>
+                    <h2>Everything you need, nothing you don&rsquo;t</h2>
+                    <p>Simple tools for the small things that are easy to forget.</p>
+                </div>
+                <div class="grid-4">
+                    <article class="card feature-card reveal"><span class="tile blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7l5.7 5.7a8 8 0 1 1-11.3 0z"/></svg></span><h3>Hydration reminders</h3><p>Gentle nudges to drink water at the interval you choose.</p></article>
+                    <article class="card feature-card reveal"><span class="tile green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 4 13c0-6 5-9 16-10-1 11-4 16-10 16"/><path d="M2 22c3-3 6-6 9-9"/></svg></span><h3>Healthy tips</h3><p>A new, practical tip on food, sleep, movement or stress every few seconds.</p></article>
+                    <article class="card feature-card reveal"><span class="tile indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><h3>Routine tracking</h3><p>See your reminders in one place and tick them off as you go.</p></article>
+                    <article class="card feature-card reveal"><span class="tile amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7l-3 7a4 4 0 0 0 6 0z"/><path d="M19 7l-3 7a4 4 0 0 0 6 0z"/></svg></span><h3>BMI check</h3><p>A quick BMI calculation with a clear visual scale.</p></article>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Assets/icons/icons8-healthy-eating-64.png" height="50px" alt="Fruits Icon">
-                <h3>Healthy Eating Tips</h3>
-                <p>Get daily tips on nutritious meals to keep you energized.</p>
+        </section>
+
+        <section id="how-it-works" style="background:var(--surface-2)">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">How it works</span>
+                    <h2>Up and running in three steps</h2>
+                </div>
+                <div class="grid-3 steps">
+                    <article class="card step reveal"><span class="tile green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span><h3 style="margin-top:1rem">Create an account</h3><p>Sign up in seconds. Everything is stored in your own browser.</p></article>
+                    <article class="card step reveal"><span class="tile blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span><h3 style="margin-top:1rem">Pick your reminders</h3><p>Choose from 16 types, from hydration to blood pressure checks, and set how often.</p></article>
+                    <article class="card step reveal"><span class="tile indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><h3 style="margin-top:1rem">Stay on track</h3><p>Get notified, tick things off, and build habits that stick.</p></article>
+                </div>
             </div>
-            <div class="feature">
-                <img src="/Assets/icons/icons8-checklist-50.png" height="50px" alt="Clock Icon">
-                <h3>Routine Tracking</h3>
-                <p>Track and manage your daily health routines easily.</p>
+        </section>
+
+        <section id="testimonials">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Use cases</span>
+                    <h2>Built for busy days</h2>
+                </div>
+                <div class="grid-4">
+                    <blockquote class="card quote reveal" style="margin:0"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;Helps me stay consistent with my routine on long study days.&rdquo;</p><footer><span class="tile sm green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>Student</footer></blockquote>
+                    <blockquote class="card quote reveal" style="margin:0"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;The reminders keep me organised without being annoying.&rdquo;</p><footer><span class="tile sm blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>Remote worker</footer></blockquote>
+                    <blockquote class="card quote reveal" style="margin:0"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;I no longer forget my vitamins in the morning.&rdquo;</p><footer><span class="tile sm indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>Parent</footer></blockquote>
+                    <blockquote class="card quote reveal" style="margin:0"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;Stretch prompts get me up from the desk during the day.&rdquo;</p><footer><span class="tile sm amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>Developer</footer></blockquote>
+                </div>
+                <p class="note">Illustrative examples written for this demo, not real reviews.</p>
             </div>
-            <div class="feature">
-                <img src="/Assets/icons/icons8-woman-athlete-48.png" alt="Fitness Icon">
-                <h3>Exercise Reminders</h3>
-                <p>Stay active with customized workout reminders.</p>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="cta-band reveal">
+                    <h2>Ready to take control of your health?</h2>
+                    <p>Start building better daily habits today.</p>
+                    <a href="./signup.html" class="btn">Create your free account</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a class="brand" href="./index.html"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>HealthYou</a>
+                    <p style="margin-top:1rem;max-width:340px">Small daily habits, made easier. A front-end demo built by Emmanuel Opoku-Adjei.</p>
+                </div>
+                <div>
+                    <h4>App</h4>
+                    <ul>
+                        <li><a href="./features.html">Dashboard</a></li>
+                        <li><a href="./account.html">Account</a></li>
+                        <li><a href="./signup.html">Sign up</a></li>
+                        <li><a href="./login.html">Log in</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Project</h4>
+                    <ul>
+                        <li><a href="./about.html">About</a></li>
+                        <li><a href="./about.html#contact">Contact</a></li>
+                        <li><a href="https://github.com/Chiefopoku/healthyou-front-end" target="_blank" rel="noopener noreferrer">Source code</a></li>
+                        <li><a href="https://chiefopoku.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Developer portfolio</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 HealthYou &middot; healthyou@gmail.com &middot; (+233) 2454-86439</span>
+                <span>Demo project: your data stays in this browser. Not medical advice.</span>
             </div>
         </div>
-    </section>
-
-    <section id="how-it-works">
-        <h2>How It Works</h2>
-        <div class="steps">
-            <div class="step">
-                <h3>Sign Up</h3>
-                <p>Create an account to get started.</p>
-            </div>
-            <div class="step">
-                <h3>Customize Your Routine</h3>
-                <p>Set your daily health goals and reminders.</p>
-            </div>
-            <div class="step">
-                <h3>Stay on Track</h3>
-                <p>Receive reminders and tips to maintain your health.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="testimonials">
-        <h2>What Our Users Say</h2>
-        <div class="testimonials">
-            <div class="testimonial">
-                <img src="/Assets/icons/icons8-testimony-64.png" alt="User Photo">
-                <p>"HealthYou has helped me stay consistent with my health routines. Highly recommended!" - John Doe</p>
-            </div>
-            <div class="testimonial">
-                <img src="/Assets/icons/icons8-testimony-64.png" alt="User Photo">
-                <p>"The reminders are a game-changer. I feel healthier and more organized." - Jane Smith</p>
-            </div>
-            <div class="testimonial">
-                <img src="/Assets/icons/icons8-testimony-64.png" alt="User Photo">
-                <p>"Thanks to HealthYou, I never forget to take my vitamins anymore. It's been a great addition to my daily routine." - Alex Johnson</p>
-            </div>
-            <div class="testimonial">
-                <img src="/Assets/icons/icons8-testimony-64.png" alt="User Photo">
-                <p>"The exercise reminders are fantastic. They help me stay active throughout the day." - Maria Garcia</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="cta">
-        <h2>Ready to Take Control of Your Health?</h2>
-        <p>Join HealthYou today and start your journey to a healthier you.</p>
-        <a href="./signup.html" class="btn">Sign Up Now</a>
-    </section>
-
-    <footer>
-        <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./features.html">Features</a></li>
-            <li><a href="./about.html">About</a></li>
-            <li><a href="./account.html">Account</a></li>
-        </ul>
-        <div>
-            <a href="https://chiefopoku.github.io/social_links-profile/"><img src="Assets/icons/facebook.png" height="30" alt="Facebook Icon"></a>
-            <a href="https://chiefopoku.github.io/social_links-profile/"><img src="Assets/icons/twitter.png" height="30" alt="Twitter Icon"></a>
-            <a href="https://chiefopoku.github.io/social_links-profile/"><img src="Assets/icons/instagram.png" height="30" alt="Instagram Icon"></a>
-        </div>
-        <p>Contact us: healthyou@gmail.com | (+233) 2454-86439</p>
     </footer>
-    <script src="scripts/script.js"></script>
+    <script src="scripts/script.js?v=2"></script>
 </body>
 </html>

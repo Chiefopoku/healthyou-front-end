@@ -3,134 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealthYou</title>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
-    <header>
-        <div class="logo"><a href="./index.html">HealthYou</a></div>
-        <nav class="nav">
-            <div class="nav-toggle">
-                <div class="nav-toggle-bar"></div>
-                <div class="nav-toggle-bar"></div>
-                <div class="nav-toggle-bar"></div>
-            </div>
+    <title>Dashboard | HealthYou</title>
+    <meta name="description" content="HealthYou: a front-end demo web app for daily health reminders, health tips and a BMI calculator, built by Emmanuel Opoku-Adjei.">
+    <meta name="theme-color" content="#10b981">
+    <meta property="og:title" content="Dashboard | HealthYou">
+    <meta property="og:description" content="HealthYou: a front-end demo web app for daily health reminders, health tips and a BMI calculator, built by Emmanuel Opoku-Adjei.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%2310b981'/%3E%3Cpath d='M18 8.6a3.4 3.4 0 0 0-4.8 0l-.6.7-.6-.7a3.4 3.4 0 0 0-4.8 4.8l5.4 5.2 5.4-5.2a3.4 3.4 0 0 0 0-4.8z' fill='white'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css?v=2">
+</head><body data-page="features">
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+        <div class="container nav-bar">
+            <a class="brand" href="./index.html"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>HealthYou</a>
+            <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
             <ul class="nav-list">
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./features.html">Features</a></li>
-                <li><a href="./login.html">Login</a></li>
+                <li><a href="./features.html" aria-current="page">Dashboard</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./account.html">Account</a></li>
+                <li><a href="./signup.html" class="btn" data-guest>Get started</a></li>
+                <li><a href="./index.html" id="logout" data-member hidden>Log out</a></li>
             </ul>
-        </nav>
+        </div>
     </header>
-    <main>
-        <section class="health-tips-section">
-            <h2>Health Tips</h2>
-            <div id="health-tip">
-                <!-- Health tips will be dynamically populated here -->
+    <main id="main">
+        <div class="container page-head">
+            <span class="eyebrow">Dashboard</span>
+            <h1 id="greeting" style="font-size:clamp(1.9rem,4vw,2.8rem)">Your health, today</h1>
+            <p>Set reminders, tick them off, and check in with a quick tip or BMI calculation.</p>
+        </div>
+        <section class="dash">
+            <div class="container dash-grid">
+                <article class="card tip-card span-12">
+                    <span class="tile green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 4 13c0-6 5-9 16-10-1 11-4 16-10 16"/><path d="M2 22c3-3 6-6 9-9"/></svg></span>
+                    <div style="flex:1">
+                        <p class="muted" style="margin:0 0 .3rem;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em">Tip of the moment</p>
+                        <p id="health-tip" aria-live="polite"></p>
+                    </div>
+                    <button class="btn btn-ghost btn-sm" id="nextTip" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 4v6h-6"/><path d="M20.5 15a9 9 0 1 1-2.1-9.4L23 10"/></svg> Next tip</button>
+                </article>
+
+                <article class="card span-5">
+                    <div class="card-head"><span class="tile blue sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span><div><h2>New reminder</h2><p>Pick what and how often</p></div></div>
+                    <form id="reminder-form">
+                        <div class="form-group">
+                            <label for="reminder-type">Type</label>
+                            <select id="reminder-type" name="reminder-type" required>
+                                        <option value="hydration">Hydration</option>
+                                        <option value="medication">Medication</option>
+                                        <option value="meal">Meals</option>
+                                        <option value="physical-activity">Physical activity</option>
+                                        <option value="stretching">Stretching</option>
+                                        <option value="mindfulness">Mindfulness and meditation</option>
+                                        <option value="sleep">Sleep schedule</option>
+                                        <option value="doctor-appointment">Doctor&rsquo;s appointments</option>
+                                        <option value="blood-pressure">Blood pressure check</option>
+                                        <option value="blood-sugar">Blood sugar check</option>
+                                        <option value="vision">Eye rest</option>
+                                        <option value="vitamin">Vitamin intake</option>
+                                        <option value="health-checkup">Health check-up</option>
+                                        <option value="mental-health">Mental health check-in</option>
+                                        <option value="posture">Posture correction</option>
+                                        <option value="skin-care">Skin care routine</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="interval">Every</label>
+                            <select id="interval" name="interval" required>
+                                <option value="2hourly">2 hours</option>
+                                <option value="4hourly">4 hours</option>
+                                <option value="6hourly">6 hours</option>
+                                <option value="8hourly">8 hours</option>
+                                <option value="10hourly">10 hours</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-block">Add reminder</button>
+                        <p class="demo-note">Allow notifications when asked. Reminders pop up while this page is open.</p>
+                    </form>
+                </article>
+
+                <article class="card span-7">
+                    <div class="card-head"><span class="tile indigo sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><div><h2>Your reminders</h2><p id="reminderSummary">Nothing set yet</p></div><span class="badge spacer" id="reminderCount">0</span></div>
+                    <div class="reminder-list"></div>
+                </article>
+
+                <article class="card span-12">
+                    <div class="card-head"><span class="tile amber sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7l-3 7a4 4 0 0 0 6 0z"/><path d="M19 7l-3 7a4 4 0 0 0 6 0z"/></svg></span><div><h2>BMI calculator</h2><p>Body mass index from weight and height</p></div></div>
+                    <div class="bmi-wrap">
+                        <form id="bmiForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="weight">Weight (kg)</label>
+                                    <input type="number" id="weight" name="weight" min="1" step="0.1" placeholder="70" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="height">Height (m)</label>
+                                    <input type="number" id="height" name="height" min="0.5" max="2.6" step="0.01" placeholder="1.75" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn">Calculate BMI</button>
+                        </form>
+                        <div>
+                            <div class="bmi-value" id="bmiValue">&ndash;</div>
+                            <div id="bmiResult" class="bmi-result">Enter your weight and height.</div>
+                            <div class="bmi-scale"><span class="bmi-marker" id="bmiMarker"></span></div>
+                            <div class="bmi-labels"><span>Under</span><span>Healthy</span><span>Over</span><span>Obese</span></div>
+                        </div>
+                    </div>
+                </article>
             </div>
-        </section>
-        <section class="reminder-setup-section">
-            <h2>Set Your Reminders</h2>
-            <form id="reminder-form">
-                <div class="form-group">
-                    <label for="reminder-type">Type of Reminder:</label>
-                    <select id="reminder-type" name="reminder-type" required>
-                        <option value="hydration">Hydration Reminders</option>
-                        <option value="medication">Medication Alerts</option>
-                        <option value="meal">Meal Reminders</option>
-                        <option value="physical-activity">Physical Activity Alerts</option>
-                        <option value="stretching">Stretching Prompts</option>
-                        <option value="mindfulness">Mindfulness and Meditation</option>
-                        <option value="sleep">Sleep Schedule</option>
-                        <option value="doctor-appointment">Doctor’s Appointments</option>
-                        <option value="blood-pressure">Blood Pressure Monitoring</option>
-                        <option value="blood-sugar">Blood Sugar Monitoring</option>
-                        <option value="cholesterol">Cholesterol Monitoring</option>
-                        <option value="vision">Vision Exercises</option>
-                        <option value="vitamin">Vitamin Intake</option>
-                        <option value="health-checkup">Health Check-Ups</option>
-                        <option value="mental-health">Mental Health Check-Ins</option>
-                        <option value="posture">Posture Corrections</option>
-                        <option value="skin-care">Skin Care Routine</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="interval">Interval:</label>
-                    <select id="interval" name="interval" required>
-                        <option value="2hourly">Every 2 Hours</option>
-                        <option value="4hourly">Every 4 Hours</option>
-                        <option value="6hourly">Every 6 Hours</option>
-                        <option value="8hourly">Every 8 Hours</option>
-                        <option value="10hourly">Every 10 Hours</option>
-                        <option value="custom">Custom Duration/Interval</option>
-                    </select>
-                </div>
-                <button type="submit">Set Reminder</button>
-            </form>
-        </section>
-        <section class="current-reminders-section">
-            <h2>Your Current Reminders</h2>
-            <div class="reminder-list">
-                <!-- Example of a dynamically added reminder item -->
-                <!-- Dynamically added reminder items will appear here -->
-            </div>
-        </section>
-        <section class="bmi-calculator">
-            <h2>Calculate Your BMI</h2>
-            <form id="bmiForm">
-                <div class="form-group">
-                    <label for="weight">Weight (kg):</label>
-                    <input type="number" id="weight" name="weight" required>
-                </div>
-                <div class="form-group">
-                    <label for="height">Height (m):</label>
-                    <input type="number" id="height" name="height" step="0.01" required>
-                </div>
-                <button type="submit" class="btn">Calculate BMI</button>
-            </form>
-            <div id="bmiResult" class="bmi-result"></div>
         </section>
     </main>
-
-    <footer>
-        <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./features.html">Features</a></li>
-            <li><a href="./login.html">Login</a></li>
-        </ul>
-        <div>
-            <a href="https://chiefopoku.github.io/social_links-profile/"><img src="Assets/icons/facebook.png" height="30" alt="Facebook Icon"></a>
-            <a href="https://chiefopoku.github.io/social_links-profile/"><img src="Assets/icons/twitter.png" height="30" alt="Twitter Icon"></a>
-            <a href="https://chiefopoku.github.io/social_links-profile/"><img src="Assets/icons/instagram.png" height="30" alt="Instagram Icon"></a>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a class="brand" href="./index.html"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>HealthYou</a>
+                    <p style="margin-top:1rem;max-width:340px">Small daily habits, made easier. A front-end demo built by Emmanuel Opoku-Adjei.</p>
+                </div>
+                <div>
+                    <h4>App</h4>
+                    <ul>
+                        <li><a href="./features.html">Dashboard</a></li>
+                        <li><a href="./account.html">Account</a></li>
+                        <li><a href="./signup.html">Sign up</a></li>
+                        <li><a href="./login.html">Log in</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Project</h4>
+                    <ul>
+                        <li><a href="./about.html">About</a></li>
+                        <li><a href="./about.html#contact">Contact</a></li>
+                        <li><a href="https://github.com/Chiefopoku/healthyou-front-end" target="_blank" rel="noopener noreferrer">Source code</a></li>
+                        <li><a href="https://chiefopoku.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Developer portfolio</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 HealthYou &middot; healthyou@gmail.com &middot; (+233) 2454-86439</span>
+                <span>Demo project: your data stays in this browser. Not medical advice.</span>
+            </div>
         </div>
-        <p>Contact us: healthyou@gmail.com | (+233) 2454-86439</p>
     </footer>
-    <script>
-        document.getElementById('bmiForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const weight = parseFloat(document.getElementById('weight').value);
-            const height = parseFloat(document.getElementById('height').value);
-
-            if (weight > 0 && height > 0) {
-                const bmi = weight / (height * height);
-                let resultText = `Your BMI is ${bmi.toFixed(2)}.`;
-
-                if (bmi < 18.5) {
-                    resultText += " You are underweight.";
-                } else if (bmi >= 18.5 && bmi < 24.9) {
-                    resultText += " You have a normal weight.";
-                } else if (bmi >= 25 && bmi < 29.9) {
-                    resultText += " You are overweight.";
-                } else {
-                    resultText += " You are obese.";
-                }
-
-                document.getElementById('bmiResult').innerText = resultText;
-            } else {
-                document.getElementById('bmiResult').innerText = "Please enter valid weight and height.";
-            }
-        });
-    </script>
-    <script src="scripts/script.js"></script>
+    <script src="scripts/script.js?v=2"></script>
 </body>
 </html>

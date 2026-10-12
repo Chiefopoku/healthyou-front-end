@@ -3,77 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealthYou</title>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
-    <header>
-        <div class="logo"><a href="/">HealthYou</a></div>
-        <nav class="nav">
-            <div class="nav-toggle">
-                <div class="nav-toggle-bar"></div>
-                <div class="nav-toggle-bar"></div>
-                <div class="nav-toggle-bar"></div>
-            </div>
+    <title>Create your account | HealthYou</title>
+    <meta name="description" content="HealthYou: a front-end demo web app for daily health reminders, health tips and a BMI calculator, built by Emmanuel Opoku-Adjei.">
+    <meta name="theme-color" content="#10b981">
+    <meta property="og:title" content="Create your account | HealthYou">
+    <meta property="og:description" content="HealthYou: a front-end demo web app for daily health reminders, health tips and a BMI calculator, built by Emmanuel Opoku-Adjei.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%2310b981'/%3E%3Cpath d='M18 8.6a3.4 3.4 0 0 0-4.8 0l-.6.7-.6-.7a3.4 3.4 0 0 0-4.8 4.8l5.4 5.2 5.4-5.2a3.4 3.4 0 0 0 0-4.8z' fill='white'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css?v=2">
+</head><body data-page="signup">
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+        <div class="container nav-bar">
+            <a class="brand" href="./index.html"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>HealthYou</a>
+            <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
             <ul class="nav-list">
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./features.html">Features</a></li>
-                <li><a href="./login.html">Login</a></li>
+                <li><a href="./features.html">Dashboard</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./account.html">Account</a></li>
             </ul>
-        </nav>
+        </div>
     </header>
-
-    <section class="signup-card">
-        <div class="card">
-            <h1>Sign Up</h1>
+    <main id="main" class="auth">
+        <div class="card auth-card">
+            <span class="brand-mark" style="margin-bottom:1.2rem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>
+            <h1>Create your account</h1>
+            <p>Free, and your data stays on this device.</p>
             <form id="signupForm">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
+                <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" autocomplete="name" required></div>
+                <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" required></div>
+                <div class="form-row">
+                    <div class="form-group"><label for="password">Password</label><input type="password" id="password" name="password" minlength="8" autocomplete="new-password" required></div>
+                    <div class="form-group"><label for="passwordVerify">Confirm</label><input type="password" id="passwordVerify" name="passwordVerify" autocomplete="new-password" required></div>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                <div class="form-row">
+                    <div class="form-group"><label for="birthday">Birthday</label><input type="date" id="birthday" name="birthday" required></div>
+                    <div class="form-group"><label for="sex">Sex</label><select id="sex" name="sex"><option value="">Prefer not to say</option><option value="male">Male</option><option value="female">Female</option></select></div>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <label for="passwordVerify">Verify Password:</label>
-                    <input type="password" id="passwordVerify" name="passwordVerify" required>
-                </div>
-                <div class="form-group">
-                    <label for="birthday">Birthday:</label>
-                    <input type="date" id="birthday" name="birthday" required>
-                </div>
-                <div class="form-group">
-                    <label for="sex">Sex:</label>
-                    <select id="sex" name="sex">
-                        <option value="">Select</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn">Sign Up</button>
+                <button type="submit" class="btn btn-block">Create account</button>
+                <p class="demo-note">Demo only: please don&rsquo;t reuse a real password.</p>
             </form>
+            <p class="auth-alt">Already have an account? <a href="./login.html">Log in</a></p>
         </div>
-    </section>
-
-    <footer>
-        <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./features.html">Features</a></li>
-            <li><a href="./about.html">About</a></li>
-            <li><a href="./account.html">Account</a></li>
-        </ul>
-        <div>
-            <a href="https://chiefopoku.github.io/social_links-profile/"><img src="Assets/icons/facebook.png" height="30" alt="Facebook Icon"></a>
-            <a href="https://chiefopoku.github.io/social_links-profile/"><img src="Assets/icons/twitter.png" height="30" alt="Twitter Icon"></a>
-            <a href="https://chiefopoku.github.io/social_links-profile/"><img src="Assets/icons/instagram.png" height="30" alt="Instagram Icon"></a>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a class="brand" href="./index.html"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>HealthYou</a>
+                    <p style="margin-top:1rem;max-width:340px">Small daily habits, made easier. A front-end demo built by Emmanuel Opoku-Adjei.</p>
+                </div>
+                <div>
+                    <h4>App</h4>
+                    <ul>
+                        <li><a href="./features.html">Dashboard</a></li>
+                        <li><a href="./account.html">Account</a></li>
+                        <li><a href="./signup.html">Sign up</a></li>
+                        <li><a href="./login.html">Log in</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Project</h4>
+                    <ul>
+                        <li><a href="./about.html">About</a></li>
+                        <li><a href="./about.html#contact">Contact</a></li>
+                        <li><a href="https://github.com/Chiefopoku/healthyou-front-end" target="_blank" rel="noopener noreferrer">Source code</a></li>
+                        <li><a href="https://chiefopoku.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Developer portfolio</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 HealthYou &middot; healthyou@gmail.com &middot; (+233) 2454-86439</span>
+                <span>Demo project: your data stays in this browser. Not medical advice.</span>
+            </div>
         </div>
-        <p>Contact us: healthyou@gmail.com | (+233) 2454-86439</p>
     </footer>
-    <script src="scripts/script.js"></script>
+    <script src="scripts/script.js?v=2"></script>
 </body>
 </html>
